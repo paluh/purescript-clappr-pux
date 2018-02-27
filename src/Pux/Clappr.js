@@ -4,10 +4,11 @@
 // module Pux.Clappr
 
 var React = require('react');
+var createReactClass = require('create-react-class');
 var equal = require('fast-deep-equal');
 var clappr = require('clappr');
 
-exports.clapprImpl = React.createClass({
+exports.clapprImpl = createReactClass({
   shouldComponentUpdate: function(nextProps, nextState) {
     this.props = nextProps;
     this.state = nextState;
