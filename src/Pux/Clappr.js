@@ -30,10 +30,21 @@ exports.clapprImpl = createReactClass({
     this.player = null;
   },
   change: function change(props) {
+    var opts = {};
     if (this.player) {
       this.destroyPlayer();
     }
-    this.player = new clappr.Player(props);
+    // XXX: dirty hack to add parent reference to config
+    // we don't want to change NativeOptions structure
+    // in Clappr module as it complicates a lot
+    // plugins configuration/setup.
+    for (var key in props) {
+        if (props.hasOwnProperty(key)) {
+            opts[key] = props[key];
+        }
+    }
+    opts.parent = this.refs.player;
+    this.player = new clappr.Player(opts);
   },
   render: function render() {
     return React.createElement(
