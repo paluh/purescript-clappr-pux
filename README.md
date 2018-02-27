@@ -17,7 +17,7 @@ If you are in hurry here is a short snippet with some plugins configuration:
       }
 
     view state = div $ do
-      p $ text "It is my great pleasure to present you Clappr Component:"
+      p $ text "It is my great pleasure to present you The Clappr Player Component:"
       clappr
         ( DvrControls.setup
         <<< Watermark.setup watermark
