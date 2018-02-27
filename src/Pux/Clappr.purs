@@ -3,6 +3,7 @@ module Pux.Clappr where
 import Clappr (OptionsBase, NativeOptions)
 import Data.Maybe (Maybe(..))
 import Data.Nullable (toNullable)
+import Prelude (pure, unit)
 import Pux.DOM.HTML (HTML)
 import Pux.Renderer.React (reactClassWithProps)
 import React (ReactClass)
@@ -19,9 +20,10 @@ toNativeOptions options =
   , parent: toNullable Nothing
   }
 
-clappr ∷ ∀ env r. NativeOptions r → (HTML env → HTML env)
+clappr ∷ ∀ env r. NativeOptions r → HTML env
 clappr opts =
   reactClassWithProps
     clapprImpl
     "clappr-component"
     opts
+    (pure unit)
