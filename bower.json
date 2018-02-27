@@ -1,5 +1,5 @@
 {
-  "name": "purescript-clappr-pux",
+  "name": "purescript-pux-clappr",
   "ignore": [
     "**/.*",
     "node_modules",
