@@ -41,7 +41,9 @@ main parentId source = do
   let
     config =
       { initialState:
-          { source: source }
+          { baseUrl: Nothing
+          , source: source
+          }
       , foldp: foldp
       , view: view
       , inputs: []

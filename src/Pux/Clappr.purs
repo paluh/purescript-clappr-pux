@@ -14,7 +14,8 @@ type Options = OptionsBase ()
 
 toNativeOptions ∷ Options → NativeOptions ()
 toNativeOptions options =
-  { source: options.source
+  { baseUrl: toNullable options.baseUrl
+  , source: options.source
   , plugins: []
   , parentId: toNullable Nothing
   , parent: toNullable Nothing
