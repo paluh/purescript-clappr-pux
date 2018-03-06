@@ -14,7 +14,9 @@ type Options = OptionsBase ()
 
 toNativeOptions ∷ Options → NativeOptions ()
 toNativeOptions options =
-  { baseUrl: toNullable options.baseUrl
+  { autoPlay: options.autoPlay
+  , baseUrl: toNullable options.baseUrl
+  , mute: options.mute
   , source: options.source
   , plugins: []
   , parentId: toNullable Nothing

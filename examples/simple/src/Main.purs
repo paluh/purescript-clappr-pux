@@ -41,7 +41,9 @@ main parentId source = do
   let
     config =
       { initialState:
-          { baseUrl: Nothing
+          { autoPlay: true
+          , baseUrl: Nothing
+          , mute: true
           , source: source
           }
       , foldp: foldp
