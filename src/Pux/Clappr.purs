@@ -16,11 +16,12 @@ toNativeOptions ∷ Options → NativeOptions ()
 toNativeOptions options =
   { autoPlay: options.autoPlay
   , baseUrl: toNullable options.baseUrl
+  , hlsjsConfig: toNullable Nothing
   , mute: options.mute
-  , source: options.source
-  , plugins: []
   , parentId: toNullable Nothing
   , parent: toNullable Nothing
+  , plugins: []
+  , source: options.source
   }
 
 clappr ∷ ∀ env r. NativeOptions r → HTML env

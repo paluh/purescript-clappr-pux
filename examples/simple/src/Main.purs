@@ -3,6 +3,7 @@ module Main where
 import Prelude hiding (div)
 
 import Clappr.Plugins.DvrControls as DvrControls
+import Clappr.Plugins.ResponsiveContainer as ResponsiveContainer
 import Clappr.Plugins.Watermark as Watermark
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE, log)
@@ -27,14 +28,13 @@ watermark =
   }
 
 view state = div $ do
-  p $ text "Clappr below"
   clappr
     ( DvrControls.setup
     <<< Watermark.setup watermark
+    -- <<< ResponsiveContainer.setup
     <<< toNativeOptions
     $ state
     )
-  p $ text "Clappr above"
 
 -- main :: forall e. Eff (console :: CONSOLE | e) Unit
 main parentId source = do
