@@ -10,11 +10,11 @@ var clappr = require('clappr');
 
 exports.clapprImpl = createReactClass({
   shouldComponentUpdate: function(nextProps, nextState) {
-    this.props = nextProps;
-    this.state = nextState;
     if (!equal(nextProps, this.props)) {
       this.change(nextProps);
     }
+    this.props = nextProps;
+    this.state = nextState;
     return false;
   },
   componentDidMount: function() {
