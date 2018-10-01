@@ -17,6 +17,7 @@ toNativeOptions options =
   { autoPlay: options.autoPlay
   , baseUrl: toNullable options.baseUrl
   , hlsjsConfig: toNullable options.hlsjsConfig
+  , hlsRecoverAttempts: toNullable options.hlsRecoverAttempts
   , mute: options.mute
   , parentId: toNullable Nothing
   , parent: toNullable Nothing
