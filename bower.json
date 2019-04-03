@@ -11,7 +11,7 @@
     "purescript-clappr": "git@github.com:paluh/purescript-clappr.git#master",
     "purescript-console": "^4.2.0",
     "purescript-prelude": "^4.1.0",
-    "purescript-pux": "^13.0.0"
+    "purescript-pux": "git@github.com:paluh/purescript-pux.git#master"
   },
   "devDependencies": {
     "purescript-psci-support": "^4.0.0"
