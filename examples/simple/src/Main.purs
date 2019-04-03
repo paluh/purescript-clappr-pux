@@ -5,8 +5,6 @@ import Prelude hiding (div)
 import Clappr.Plugins.DvrControls as DvrControls
 import Clappr.Plugins.ResponsiveContainer as ResponsiveContainer
 import Clappr.Plugins.Watermark as Watermark
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE, log)
 import Data.Maybe (Maybe(..))
 import Pux (noEffects, start)
 import Pux.Clappr (clappr, Options)
@@ -43,6 +41,8 @@ main parentId source = do
       { initialState:
           { autoPlay: true
           , baseUrl: Nothing
+          , hlsjsConfig: Nothing
+          , hlsRecoverAttempts: Nothing
           , mute: true
           , source: source
           }

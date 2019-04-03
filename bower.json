@@ -8,13 +8,13 @@
   ],
   "dependencies": {
     "fast-deep-equal": "git@github.com:epoberezkin/fast-deep-equal.git",
-    "purescript-clappr": "git@github.com:paluh/purescript-clappr.git#6dcb3aeb6f986d1efe9eb984181f1b150139b2d8",
-    "purescript-console": "^3.0.0",
-    "purescript-prelude": "^3.1.1",
-    "purescript-pux": "^12.0.0"
+    "purescript-clappr": "git@github.com:paluh/purescript-clappr.git#master",
+    "purescript-console": "^4.2.0",
+    "purescript-prelude": "^4.1.0",
+    "purescript-pux": "^13.0.0"
   },
   "devDependencies": {
-    "purescript-psci-support": "^3.0.0"
+    "purescript-psci-support": "^4.0.0"
   },
   "license": "BSD-3-Clause",
   "repository": {
