@@ -7,11 +7,9 @@
     "output"
   ],
   "dependencies": {
-    "fast-deep-equal": "git@github.com:epoberezkin/fast-deep-equal.git",
-    "purescript-clappr": "git@github.com:paluh/purescript-clappr.git#master",
-    "purescript-console": "^4.2.0",
-    "purescript-prelude": "^4.1.0",
-    "purescript-pux": "git@github.com:paluh/purescript-pux.git#master"
+    "fast-deep-equal": "https://github.com/epoberezkin/fast-deep-equal.git",
+    "purescript-clappr": "https://github.com/paluh/purescript-clappr.git#master",
+    "purescript-pux": "https://github.com/paluh/purescript-pux.git#master"
   },
   "devDependencies": {
     "purescript-psci-support": "^4.0.0"

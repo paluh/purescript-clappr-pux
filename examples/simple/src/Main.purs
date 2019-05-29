@@ -2,18 +2,20 @@ module Main where
 
 import Prelude hiding (div)
 
+import Clappr (OptionsBase)
 import Clappr.Plugins.DvrControls as DvrControls
 import Clappr.Plugins.ResponsiveContainer as ResponsiveContainer
 import Clappr.Plugins.Watermark as Watermark
 import Data.Maybe (Maybe(..))
+import Effect (Effect)
+import Effect.Class.Console (log)
 import Pux (noEffects, start)
-import Pux.Clappr (clappr, Options)
-import Pux.Clappr (toNativeOptions)
+import Pux.Clappr (clappr, toNativeOptions)
 import Pux.Renderer.React (renderToDOM)
 import Text.Smolder.HTML (div, p)
 import Text.Smolder.Markup (text)
 
-type State = Options
+type State = OptionsBase ()
 type Action = Unit
 
 foldp _ state = noEffects state
@@ -34,7 +36,7 @@ view state = div $ do
     $ state
     )
 
--- main :: forall e. Eff (console :: CONSOLE | e) Unit
+main ∷ String → String → Effect Unit
 main parentId source = do
   let
     config =

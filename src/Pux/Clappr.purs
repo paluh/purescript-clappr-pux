@@ -1,29 +1,34 @@
 module Pux.Clappr where
 
-import Clappr (OptionsBase, NativeOptions)
+import Prelude
+
+import Clappr (NativeOptions, OptionsBase)
 import Data.Maybe (Maybe(..))
 import Data.Nullable (toNullable)
-import Prelude (pure, unit)
+import Prim.Row (class Lacks)
 import Pux.DOM.HTML (HTML)
 import Pux.Renderer.React (reactClassWithProps)
 import React (ReactClass)
+import Record (insert, set)
+import Type.Prelude (SProxy(..))
 
 foreign import clapprImpl ∷ ∀ r. ReactClass (NativeOptions r)
 
-type Options = OptionsBase ()
-
-toNativeOptions ∷ Options → NativeOptions ()
-toNativeOptions options =
-  { autoPlay: options.autoPlay
-  , baseUrl: toNullable options.baseUrl
-  , hlsjsConfig: toNullable options.hlsjsConfig
-  , hlsRecoverAttempts: toNullable options.hlsRecoverAttempts
-  , mute: options.mute
-  , parentId: toNullable Nothing
-  , parent: toNullable Nothing
-  , plugins: []
-  , source: options.source
-  }
+toNativeOptions
+  ∷ ∀ r
+  . (Lacks "plugins" r)
+  ⇒ (Lacks "parent" r)
+  ⇒ (Lacks "parentId" r)
+  ⇒ OptionsBase r
+  → NativeOptions r
+toNativeOptions options
+  = insert (SProxy ∷ SProxy "plugins") []
+  <<< insert (SProxy ∷ SProxy "parent") (toNullable Nothing)
+  <<< insert (SProxy ∷ SProxy "parentId") (toNullable Nothing)
+  <<< set (SProxy ∷ SProxy "baseUrl") (toNullable options.baseUrl)
+  <<< set (SProxy ∷ SProxy "hlsjsConfig") (toNullable options.hlsjsConfig)
+  <<< set (SProxy ∷ SProxy "hlsRecoverAttempts") (toNullable options.hlsRecoverAttempts)
+  $ options
 
 clappr ∷ ∀ env r. NativeOptions r → HTML env
 clappr opts =

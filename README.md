@@ -2,6 +2,24 @@
 
 Provides react component for Pux which is build upon `purescript-clappr`.
 
+## Installation
+
+Please add .bowerrc to your project:
+
+```json
+  {
+    "resolvers": [
+      "bower-npm-resolver"
+    ]
+  }
+```
+and install some transitive dependencies through through bower:
+
+```shell
+  $ npm install bower-npm-resolver
+  $ bower install
+```
+
 ## Usage
 
 If you are in hurry here is a short snippet with some plugins configuration:
